@@ -33,7 +33,6 @@ public class WordChainAssert extends ListAssert<String> {
                     long count = IntStream.range(0, prev.length())
                             .filter(j -> prev.charAt(j) != next.charAt(j))
                             .count();
-                    System.out.println(prev + next);
                     Assertions.assertThat(count).isLessThanOrEqualTo(1);
                 });
         return this;

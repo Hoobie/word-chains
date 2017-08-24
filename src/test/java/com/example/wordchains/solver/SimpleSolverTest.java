@@ -1,12 +1,13 @@
 package com.example.wordchains.solver;
 
+import com.example.wordchains.loader.WordListFileLoader;
 import org.junit.Test;
 
 import static com.example.wordchains.assertions.WordChainAssert.assertThat;
 
 public class SimpleSolverTest {
 
-    private static final Solver SOLVER = new SimpleSolver();
+    private static final Solver SOLVER = new SimpleSolver(new WordListFileLoader());
 
     @Test
     public void shouldReturnPossiblyNotOptimalSolution() throws Exception {
@@ -32,6 +33,6 @@ public class SimpleSolverTest {
 
         assertThat(SOLVER.buildChain("lead", "gold")).hasSize(4);
 
-        assertThat(SOLVER.buildChain("ruby", "code")).hasSize(6);
+        assertThat(SOLVER.buildChain("ruby", "code")).hasSize(5);
     }
 }
