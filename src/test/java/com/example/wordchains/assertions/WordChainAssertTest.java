@@ -30,4 +30,9 @@ public class WordChainAssertTest {
     public void shouldNotConfirmChainCorrectness() throws Exception {
         assertThat(asList("load", "gold")).isCorrect();
     }
+
+    @Test(expected = AssertionError.class)
+    public void shouldNotConfirmChainCorrectnessDueToNonExistingWords() throws Exception {
+        assertThat(asList("ruby", "cuby")).isCorrect();
+    }
 }
