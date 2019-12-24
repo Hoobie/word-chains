@@ -3,8 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/word-chains.iml" filepath="$PROJECT_DIR$/.idea/modules/word-chains.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/word-chains_main.iml" filepath="$PROJECT_DIR$/.idea/modules/word-chains_main.iml" group="word-chains" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/word-chains_test.iml" filepath="$PROJECT_DIR$/.idea/modules/word-chains_test.iml" group="word-chains" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/word-chains.main.iml" filepath="$PROJECT_DIR$/.idea/modules/word-chains.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/word-chains.test.iml" filepath="$PROJECT_DIR$/.idea/modules/word-chains.test.iml" />
     </modules>
   </component>
 </project>

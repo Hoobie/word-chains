@@ -1,6 +1,9 @@
 package com.example.wordchains.loader;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URISyntaxException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
@@ -14,15 +17,18 @@ import java.util.stream.Collectors;
 public class WordListFileLoader implements WordListLoader {
 
     private static final String WORD_LIST_FILE_NAME = "wordlist.txt";
-    private static final String CP_1252_CHARSET = "Cp1252";
 
     @Override
     public Set<String> load() {
         try {
-            Path wordListPath = Paths.get(ClassLoader.getSystemResource(WORD_LIST_FILE_NAME).toURI());
-            return Files.lines(wordListPath, Charset.forName(CP_1252_CHARSET))
-                    .collect(Collectors.toCollection(HashSet::new));
-        } catch (IOException | URISyntaxException e) {
+            try (InputStream is = getClass().getResourceAsStream(WORD_LIST_FILE_NAME)) {
+                if (is == null) return null;
+                try (InputStreamReader isr = new InputStreamReader(is);
+                     BufferedReader reader = new BufferedReader(isr)) {
+                    return reader.lines().collect(Collectors.toCollection(HashSet::new));
+                }
+            }
+        } catch (IOException  e) {
             e.printStackTrace();
         }
         return Collections.emptySet();

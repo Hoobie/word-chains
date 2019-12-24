@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class WordListFileLoaderTest {
 
     @Test
-    public void shouldLoadWordListFromFile() throws Exception {
+    public void shouldLoadWordListFromFile() {
         // given
         WordListLoader loader = new WordListFileLoader();
 
